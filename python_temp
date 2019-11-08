@@ -1,0 +1,33 @@
+import random
+
+my_number = int(input('enter num between 1 and 100:'))
+upper = 100
+lower = 1
+pc_number = random.randint(lower,upper)
+pc_memory = list()
+tries = 1
+
+#check for the correct number:
+
+while my_number<lower or my_number>upper:
+    my_number = int(input('enter the num: '))
+
+if pc_number==my_number:
+    print('You are so lucky! The num is ', my_number, ' tries: ', tries)
+
+while pc_number!=my_number:
+
+    print ('look between', lower, 'and', upper)
+    
+    if pc_number> my_number:
+        upper = pc_number
+        pc_number = random.randint(lower,upper)
+    else:
+        lower = pc_number
+        pc_number = random.randint(lower,upper)
+
+    print('Try:',tries,'MY num:', my_number, 'PC num:',pc_number)
+    
+    tries+=1
+
+print('good, the num is ', my_number, ' tries: ', tries)    
